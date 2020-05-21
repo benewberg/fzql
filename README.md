@@ -9,8 +9,8 @@ Pipes sqlite3's output to fzf and take advantage of fzf's ability to fuzzy searc
 * Perform a fuzzy search
 
 ## Dependencies:
-1. [fzf] (https://github.com/junegunn/fzf)
-2. [sqlite3] (https://sqlite.org)
+1. [fzf](https://github.com/junegunn/fzf)
+2. [sqlite3](https://sqlite.org)
 
 ## Example:
 ```bash
