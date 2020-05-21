@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+help_text() {
+    echo
+    echo "fzql: Fuzzily full-text search an sqlite database"
+    echo "dependencies: fzf and sqlite3"
+    echo ""
+    echo "usage: fzql filename sql"
+    echo ""
+    echo "    example: fzql my_database \"select * from my_table;\" "
+    echo ""
+    exit
+}
+fzf_prompt='fzql> '
+fzf_opts=" --prompt=$fzf_prompt --multi --header-lines=1 --layout=reverse"
+if [[ $# < 2 ]] ; then
+    help_text
+else
+    echo `sqlite3 -header $1 "$2" | head -n 1` && sqlite3 -header $1 "$2" | fzf $fzf_opts
+fi
